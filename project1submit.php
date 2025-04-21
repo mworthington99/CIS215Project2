@@ -17,7 +17,14 @@
 $hashed_pass = '$2y$10$ViIleDzZvM5nXXfScjwGz.D4GH.CqNabTJ9uoIqydR5.SjmzWuxNi';
 require ('dbconfig.php');
 $db = connectDB();
-$db->query("[CREATE TABLE Blank(ID, Name, Name)]");
+$db->query("
+    CREATE TABLE project_data 
+    (id INT PRIMARY KEY AUTO_INCREMENT, 
+    email VARCHAR(320), age INT, 
+    gender CHAR(2), 
+    version INT, 
+    favorite VARCHAR(120));
+")
 
 /**
  * Validate returns an empty string if there were no errors, and a message about the worst error if there was one in validation.

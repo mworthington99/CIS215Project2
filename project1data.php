@@ -7,6 +7,8 @@ ini_set('display_errors', 1);
 <html>
     <head>
         <title>PHP Questions: Data</title>
+        <script>console.log("In line script works")</script>
+        <script src="delete-data.js" defer></script>
     </head>
 <body>
 <!--@author: Clayton Allen
@@ -246,7 +248,7 @@ print("</div>");
 ?>
 <!--Author: Clayton Allen
     Description: Link to delete-data.js -->
-<script src=delete-data.js></script>
+
 <!--*End*-->
 </body>
 </html>
