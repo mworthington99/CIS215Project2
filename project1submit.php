@@ -24,7 +24,7 @@ $db->query("
     gender CHAR(2), 
     version INT, 
     favorite VARCHAR(120));
-")
+");
 
 /**
  * Validate returns an empty string if there were no errors, and a message about the worst error if there was one in validation.
