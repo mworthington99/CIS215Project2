@@ -4,12 +4,17 @@
         <title>PHP Questions: Data</title>
     </head>
 <body>
-
-<form method=POST action="delete-data.php">
-    <label for="email-name">Enter email here to delete your data:</label>
-    <input type="email" name="email-name" id="email-id">
-    <button type="submit">Delete my data</button>
-</form>
+<!--@author: Clayton Allen
+    Initializes form for deleting data.
+    -->
+    <form id='delete-data-form'>
+        <label for="email-name">Enter email here to delete your data:</label>
+        <input type="email" name="email-name" id="email-id">
+        <button type="submit">Delete my data</button>
+    </form>
+    <!--Place holder for response message after datas deleted-->
+    <p id="ResponseMessage"></p>    
+<!--**Delete data form end**-->
 <?php
 
 require ('dbconfig.php');
@@ -234,5 +239,8 @@ foreach(favorite_thing() as $value){
 print("</div>");
 
 ?>
-
+<!--Author: Clayton Allen
+    Description: Link to delete-data.js -->
+<script src="delete-data.js"></script>
+<!--*End*-->
 </body></html>
