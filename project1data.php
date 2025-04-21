@@ -5,6 +5,11 @@
     </head>
 <body>
 
+<form method=POST action="delete-data.php">
+    <label for="email-name">Enter email here to delete your data:</label>
+    <input type="email" name="email-name" id="email-id">
+    <button type="submit">Delete my data</button>
+</form>
 <?php
 
 require ('dbconfig.php');

@@ -17,7 +17,9 @@ Elliotts Task
 5. Char Count       |  |
 
 Claytons Tasks
+Sprint 1
 1. Better Passwords |  |
 2. Delete Data      |  |
+Sprint 2
 3. Search Bar       |  |
 4. Drop Down        |  |
