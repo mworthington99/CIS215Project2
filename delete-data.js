@@ -15,6 +15,7 @@
  * 
  * 
  */
+console.log("delete-data.js loaded!")
 function delete_data(){
     /**
      * Best practice to ensure DOMContent is loaded to ensure html is loaded.
@@ -22,12 +23,13 @@ function delete_data(){
      * on @line 244 in @file project1data.php
      */
     document.addEventListener("DOMContentLoaded", function(){   
-        const form = document.getElementById('delete-data-form');  
+        const form = document.getElementById("delete-data-form");  
         /**
          * Below is an event listener that will trigger when the
          * submit button is pressed. 
          */
         form.addEventListener("submit", function(event){
+            event.preventDefault();
             /**
              * @constant email will grab the email from the html form. 
              * @constant responseMessage is initiallizing the response on the webform
@@ -36,22 +38,28 @@ function delete_data(){
              * @constant xhr shortened accronym for Xml-Https-Request
              * */
 
-            const email = documenty.getElementById('email-id');
+            const email = document.getElementById("email-id").value;
             const responseMessage = document.getElementById("ResponseMessage");
-
+            console.log("before");
             const xhr = new XMLHttpRequest();
             xhr.open("POST", "delete_data.php");
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");     
             xhr.send("email=" + encodeURIComponent(email));
-
+            console.log("-after");
             xhr.onload = function() {
                 if (xhr.status === 200) {
+                    console.log("xhr.status === 200");
                     responseMessage.textContent = xhr.responseText;
                 }else{
-                    responseMessage.textContent = "Error: Could not connect to SQL Server CSN Linux"
+                    console.log("Nothing");
+                    responseMessage.textContent = "Error: Could not connect to SQL Server on CSN Linux"
                 }
             }
 
         });
     });
 }
+document.addEventListener("DOMContentLoaded", function(){
+    delete_data();
+});
+    

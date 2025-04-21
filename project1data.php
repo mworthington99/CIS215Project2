@@ -1,3 +1,8 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -7,8 +12,8 @@
 <!--@author: Clayton Allen
     Initializes form for deleting data.
     -->
-    <form id='delete-data-form'>
-        <label for="email-name">Enter email here to delete your data:</label>
+    <form id="delete-data-form">
+        <label for="email-id">Enter email here to delete your data:</label>
         <input type="email" name="email-name" id="email-id">
         <button type="submit">Delete my data</button>
     </form>
@@ -241,6 +246,7 @@ print("</div>");
 ?>
 <!--Author: Clayton Allen
     Description: Link to delete-data.js -->
-<script src="delete-data.js"></script>
+<script src=delete-data.js></script>
 <!--*End*-->
-</body></html>
+</body>
+</html>
