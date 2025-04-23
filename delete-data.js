@@ -51,8 +51,8 @@ function delete_data(){
             xhr.send("email=" + encodeURIComponent(email));  
             console.log("-after");
             xhr.onload = function() {
-                //checks status code to ensure communication has been established client side to server end
-                //Triple equals matches value and type. Its ''Strict' equality. 
+                //checks status code to ensure communication has been establi c  shed client side to server end
+                //Triple equals matches value and type. Its 'Strict' equality. 
                 if (xhr.status === 200) {
                     console.log("xhr.status === 200"); //this is good
                     responseMessage.textContent = xhr.responseText;
