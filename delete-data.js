@@ -42,22 +42,30 @@ function delete_data(){
             const responseMessage = document.getElementById("ResponseMessage");
             console.log("before");
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "delete-data.php");
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");     
-            xhr.send("email=" + encodeURIComponent(email));
+            /**
+             * This is the process to send the data from the client side to the
+             * server using an AJAX request.  
+             */
+            xhr.open("POST", "delete-data.php"); 
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //application/x-www-form-urlencoded is the default value for requestHeaders
+            xhr.send("email=" + encodeURIComponent(email));  
             console.log("-after");
             xhr.onload = function() {
+                //checks status code to ensure communication has been established client side to server end
+                //Triple equals matches value and type. Its ''Strict' equality. 
                 if (xhr.status === 200) {
-                    console.log("xhr.status === 200");
+                    console.log("xhr.status === 200"); //this is good
                     responseMessage.textContent = xhr.responseText;
-                }else{
-                    console.log("Nothing");
-                    responseMessage.textContent = "Error: Could not connect to SQL Server on CSN Linux"
+                }
+                //Error handling if a the connection is not establish.
+                else{
+                    console.log("Error: Could not connect to SQL Server on CSN Linux");
+                    responseMessage.textContent = "We cannot establish connection at this time";
                 }
             }
 
         });
     });
 }
-
+//Call function
 delete_data();

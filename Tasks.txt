@@ -19,7 +19,7 @@ Elliotts Task
 Claytons Tasks
 Sprint 1
 1. Better Passwords |  |
-2. Delete Data      |  |
+2. Delete Data      | V |
 Sprint 2
 3. Search Bar       |  |
 4. Drop Down        |  |
