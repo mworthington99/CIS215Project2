@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
+        <script src="email_validation.js"></script>
     </head>
 <body>
 
@@ -12,7 +13,8 @@
 <fieldset>
 
 <label>Enter your email: </label>
-<input type="email" name="email-name" id="email-id" required>
+<input type="text" name="email-name" id="email-id" required>
+<span id="email-status"></span>
 
 <label>Enter your password: </label>
 <input type="password" name="pw-name" id="pw-id" required>
@@ -69,5 +71,4 @@ for($i=13;$i<65;$i=$i + 5){
 </form>
 
 <div><a href='project1data.php'>View data page here</a></div>
-
 </body></html>
