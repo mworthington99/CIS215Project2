@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
-        <script src="email_validation.js"></script>
+        <script src="email_validation.js" defer></script>
     </head>
 <body>
 

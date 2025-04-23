@@ -42,7 +42,7 @@ function delete_data(){
             const responseMessage = document.getElementById("ResponseMessage");
             console.log("before");
             const xhr = new XMLHttpRequest();
-            xhr.open("POST", "delete_data.php");
+            xhr.open("POST", "delete-data.php");
             xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");     
             xhr.send("email=" + encodeURIComponent(email));
             console.log("-after");
