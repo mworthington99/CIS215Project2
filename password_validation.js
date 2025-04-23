@@ -2,8 +2,15 @@
  * @author1 Clayton Allen
  * @description I will primarily be working on the client side of
  * Better passwords. I am creating a js function that will check to 
- * see if a users new password is valid.
+ * see if a users new password is valid. 
  * 
+ * @function password_validation() Will check to ensure a user meets 
+ * 4 conditions:
+ * password length being greated than 8.
+ * password contains at least 1 lower case letter.
+ * password contains at least 1 upper case letter.
+ * password contains at least 1 special charcter that I personally specified for
+ * project simplicity being shift 1 through 9. 
  * 
  *
  * 
@@ -11,7 +18,7 @@
  * 
  * 
  * 
- * 
+ * For any ajax requests 
  * @author2 
  */
 
@@ -50,3 +57,4 @@ function password_validation() {
 
     });
 }
+password_validation();

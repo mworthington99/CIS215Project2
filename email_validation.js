@@ -32,4 +32,5 @@ document.addEventListener('DOMContentLoaded', function() {
     if (emailInput) {
         emailInput.addEventListener('input', checkEmail);
     }
+    checkEmail();
 }); 
