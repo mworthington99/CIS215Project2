@@ -7,7 +7,7 @@ Matts Tasks
 2. Better Passwords  |  |
 3. Other Text Box    |  |
 4. Password meter    |  |
-5. Better Passwords  |  |
+5. Better Passwords (Back End)  |  |
 
 Elliotts Task
 1. Extra Question   |  |
@@ -18,7 +18,7 @@ Elliotts Task
 
 Claytons Tasks
 Sprint 1
-1. Better Passwords |  |
+1. Better Passwords (Front End) |  |
 2. Delete Data      | V |
 Sprint 2
 3. Search Bar       |  |
