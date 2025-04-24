@@ -24,7 +24,7 @@
 
 function password_validation() {
     document.addEventListener("DOMContentLoaded", () => {
-        const password_input = document.getElementById("pw-id");
+        const password_input = document.getElementById("userpw-id");
         const password_status = document.getElementById("pw-status");
 
         password_input.addEventListener("input", () => {

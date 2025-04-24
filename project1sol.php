@@ -19,6 +19,10 @@
 
 <label>Enter your password: </label>
 <input type="password" name="pw-name" id="pw-id" required>
+
+
+<label for="user-pass">Create a password: </label>
+<input type="password" name="userpw-name" id="userpw-id" required>
 <!--Status for password placeholder-->
 <div id="pw-status"></div>
 </fieldset>
