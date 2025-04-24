@@ -109,4 +109,10 @@ if(validate()==""){
 }
 
 ?>
-</body></html>
+
+<input type = "color" id = "colorPicker"/>
+<button onclick = "backgroundColor()">Change Background Color</button>
+
+</body
+
+></html>

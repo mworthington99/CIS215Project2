@@ -258,5 +258,9 @@ print("</div>");
     Description: Link to delete-data.js -->
 
 <!--*End*-->
+
+<input type = "color" id = "colorPicker"/>
+<button onclick = "backgroundColor()">Change Background Color</button>
+
 </body>
 </html>
