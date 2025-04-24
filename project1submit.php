@@ -96,6 +96,25 @@ function add_data(){
     $prep_insert->execute(sanitize());
 }
 
+/**
+ * @author Matthew Worthington
+ * function that updates user info from the user-edit page
+ */
+function update_data() {
+    global $db;
+    $prep_update = $db->prepare("UPDATE project_data 
+                                SET email = ?, 
+                                    age = ?, 
+                                    gender = ?, 
+                                    version = ?, 
+                                    favorite = ?, 
+                                    password = ? 
+                                WHERE email = ?");
+    $data = sanitize();
+    // Add the email again as the WHERE clause parameter
+    $data[] = $data[0];
+    $prep_update->execute($data);
+}
 
 if(validate()==""){
     print("<div>Thanks for your submission!</div>");
@@ -107,5 +126,24 @@ if(validate()==""){
     print("<div><a href='project1sol.php'>Try submitting again here</a></div>");
 }
 
+
+/**
+ * @author Matthew Worthington
+ * uses the hidden input from user-edit to determine if the user gets here from the edit form or not.
+ */
+if(isset($_POST["from-edit"])) {
+    $data = sanitize();
+    $userEmail = $data[0];
+    $pw_stmt = $db->prepare("SELECT password FROM project_data WHERE email = ?");
+    $pw_stmt->execute([$userEmail]);
+    $testPW = $pw_stmt->fetchColumn();
+    
+    if(!password_verify($_POST["userpw-name"], $testPW)) {
+        print("<div>Sorry your password was incorrect!</div>");
+    } else {
+        print("<div>Data has been updated! Thank you!</div>");
+        update_data();
+    }
+}
 ?>
 </body></html>
