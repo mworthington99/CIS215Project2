@@ -6,3 +6,9 @@ function backgroundColor(){
     document.body.style.backgroundColor = color;
 
 }
+
+function fontColor(){
+
+        
+
+}

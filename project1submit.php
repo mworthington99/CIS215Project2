@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>PHP Questions: Submit</title>
+        <script src="background_color.js" defer></script>
     </head>
 <body>
 

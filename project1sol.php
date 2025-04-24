@@ -4,6 +4,7 @@
         <title>Survey: PHP Questions</title>
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
+        <script src="background_color.js" defer></script>
     </head>
 <body>
 

@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>PHP Questions: Data Page</title>
+        <script src="background_color.js" defer></script>
+    </head>
+<body>
+
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
