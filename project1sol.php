@@ -87,6 +87,8 @@ for($i=13;$i<65;$i=$i + 5){
 
 <button type="submit" name="button-submit-form" id = "button-submit-form-id">Submit</button>
 
+<!-- Elliott Created background color and font color buttons -->
+
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
 
