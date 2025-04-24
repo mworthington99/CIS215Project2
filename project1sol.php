@@ -17,7 +17,7 @@
 <input type="text" name="email-name" id="email-id" required>
 <span id="email-status"></span>
 
-<label>Enter your password: </label>
+<label>Enter submission password: </label>
 <input type="password" name="pw-name" id="pw-id" required>
 
 
