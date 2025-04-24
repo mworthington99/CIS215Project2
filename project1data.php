@@ -20,7 +20,7 @@ ini_set('display_errors', 1);
         <button type="submit">Delete my data</button>
     </form>
     <!--Place holder for response message after datas deleted-->
-    <p id="ResponseMessage"></p>    
+    <p id="ResponseMessage"></p>   
 <!--**Delete data form end**-->
 <?php
 

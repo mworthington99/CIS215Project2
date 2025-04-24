@@ -12,18 +12,13 @@ function checkEmail() {
         return;
     }
 
-    const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'check_email.php?email=' + encodeURIComponent(email), true);
-    
-    xhr.onload = function() {
-        if (xhr.status === 200) {
-            const response = JSON.parse(xhr.responseText);
-            emailStatus.innerHTML = response.message;
-            emailStatus.style.color = response.valid ? 'green' : 'red';
-        }
-    };
-    
-    xhr.send();
+    fetch('check_email.php?email=' + encodeURIComponent(email))
+        .then(response => response.json())
+        .then(data => {
+            emailStatus.innerHTML = data.message;
+            emailStatus.style.color = data.valid ? 'green' : 'red';
+        })
+        .catch(error => console.error('Error:', error));
 }
 
 // event listener for when the DOM is loaded

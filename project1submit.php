@@ -67,6 +67,11 @@ function validate(){
         return "Please keep your character count below 120 for your favorite part of PHP.";
     }
     return "";
+
+    if(!$_POST(["userpw-name"])) {
+        return "Please enter a password.";
+    }
+    return "";
 }
 
 /**
@@ -78,8 +83,8 @@ function sanitize(){
     $gender = htmlentities($_POST["gender"]);
     $version = (int)$_POST["version"];
     $favorite = htmlentities($_POST["favorite"]);
-
-    return array($email, $age, $gender, $version, $favorite);
+    $hashed_user = password_hash($_POST["userpw-name"], PASSWORD_DEFAULT);
+    return array($email, $age, $gender, $version, $favorite, $hashed_user);
 }
 
 /**
@@ -87,7 +92,7 @@ function sanitize(){
  */
 function add_data(){
     global $db;
-    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite) values (?,?,?,?,?)");
+    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password) values (?,?,?,?,?,?)");
     $prep_insert->execute(sanitize());
 }
 
@@ -103,5 +108,4 @@ if(validate()==""){
 }
 
 ?>
-<script src="js/email_validation.js"></script>
 </body></html>
