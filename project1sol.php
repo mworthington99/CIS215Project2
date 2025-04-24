@@ -61,6 +61,18 @@ for($i=13;$i<65;$i=$i + 5){
 </select>
 </div>
 
+<!-- Elliott created extra question -->
+
+<div>
+<select name="operating-system" id="operating-system">
+    <option value="">--Please select your OS--</option>
+    <option value="microsoft">Microsft Windows</option>
+    <option value="apple">MacOS</option>
+    <option value="chrome">ChromeOS</option>
+    <option value="other">Other</option>
+</select>
+</div>
+
 <div>
     <label> What version of PHP do you use? (only include the main version number) <input type="number" name="version" id="version" min="1", max="9" required> </label>
 </div>
