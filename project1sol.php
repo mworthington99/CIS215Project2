@@ -70,6 +70,9 @@ for($i=13;$i<65;$i=$i + 5){
 
 <button type="submit" name="button-submit-form" id = "button-submit-form-id">Submit</button>
 
+<input type = "color" id = "colorPicker"/>
+<button onclick = "backgroundColor()">Change Background Color</button>
+
 </form>
 
 <div><a href='project1data.php'>View data page here</a></div>
