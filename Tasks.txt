@@ -10,8 +10,8 @@ Matts Tasks
 5. Better Passwords (Back End)  |  |
 
 Elliotts Task
-1. Extra Question   |  |
-2. Custom Color     |  |
+1. Extra Question   | V |
+2. Custom Color     | V |
 3. Highlight empty  |  |
 4. Tool tips        |  |
 5. Char Count       |  |

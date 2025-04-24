@@ -78,6 +78,9 @@ for($i=13;$i<65;$i=$i + 5){
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
 
+<input type = "color" id = "colorPicker"/>
+<button onclick = "fontColor()">Change Font Color</button>
+
 </form>
 
 <div><a href='project1data.php'>View data page here</a></div>

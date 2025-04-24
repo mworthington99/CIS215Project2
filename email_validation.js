@@ -28,4 +28,4 @@ document.addEventListener('DOMContentLoaded', function() {
         emailInput.addEventListener('input', checkEmail);
     }
     checkEmail();
-}); 
+});
