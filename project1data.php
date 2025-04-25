@@ -245,6 +245,30 @@ foreach(favorite_thing() as $value){
 }
 print("</div>");
 
+/** Author: Matthew Worthington 
+ * Displays the users info on data page, if they are from the edit data page
+*/
+if(isset($_POST["from-edit"])) {
+    $prep_userData = $db->prepare("SELECT * FROM project_data WHERE email=?");
+    $prep_userData->execute([$_POST["email"]]);
+    $userData = $prep_userData->fetch(PDO::FETCH_ASSOC);
+    
+    if ($userData) {
+        print "<h2>Your Data:</h2>";
+        print "<div>";
+        print "<table>";
+        foreach ($userData as $key => $value) {
+            print "<tr>";
+            print "<td>" . $key . "</td>";
+            print "<td>" . $value . "</td";
+            print "<tr>";
+        }
+        print "</table>";
+        print "</div>";
+    } else {
+        echo "<div>No data found for this email address.</div>";
+    }
+}
 ?>
 <!--Author: Clayton Allen
     Description: Link to delete-data.js -->
