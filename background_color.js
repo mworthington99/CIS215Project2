@@ -6,3 +6,11 @@ function backgroundColor(){
     document.body.style.backgroundColor = color;
 
 }
+
+function fontColor(){
+
+    const colorPicker = document.getElementById('colorPicker');
+    const text = document.getElementById('text');
+    text.style.color = colorPicker.value;
+
+}

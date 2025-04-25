@@ -5,7 +5,7 @@
      * @description 
      * This php file will link with the mySQL and delete a complete data entry based off of 
      * the specified email provided. 
-     * 
+     *
      * 
      */
     //error handling, helpful for debugging 

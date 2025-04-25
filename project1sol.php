@@ -4,6 +4,7 @@
         <title>Survey: PHP Questions</title>
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
+        <script src="background_color.js" defer></script>
     </head>
 <body>
 
@@ -60,6 +61,18 @@ for($i=13;$i<65;$i=$i + 5){
 </select>
 </div>
 
+<!-- Elliott created extra question -->
+
+<div>
+<select name="operating-system" id="operating-system">
+    <option value="">--Please select your OS--</option>
+    <option value="microsoft">Microsft Windows</option>
+    <option value="apple">MacOS</option>
+    <option value="chrome">ChromeOS</option>
+    <option value="other">Other</option>
+</select>
+</div>
+
 <div>
     <label> What version of PHP do you use? (only include the main version number) <input type="number" name="version" id="version" min="1", max="9" required> </label>
 </div>
@@ -74,8 +87,13 @@ for($i=13;$i<65;$i=$i + 5){
 
 <button type="submit" name="button-submit-form" id = "button-submit-form-id">Submit</button>
 
+<!-- Elliott Created background color and font color buttons -->
+
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
+
+<input type = "color" id = "colorPicker"/>
+<button onclick = "fontColor()">Change Font Color</button>
 
 </form>
 

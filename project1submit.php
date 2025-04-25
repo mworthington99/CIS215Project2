@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>PHP Questions: Submit</title>
+        <script src="background_color.js" defer></script>
     </head>
 <body>
 
@@ -146,4 +147,13 @@ if(isset($_POST["from-edit"])) {
     }
 }
 ?>
-</body></html>
+
+<input type = "color" id = "colorPicker"/>
+<button onclick = "backgroundColor()">Change Background Color</button>
+
+<input type = "color" id = "colorPicker"/>
+<button onclick = "fontColor()">Change Font Color</button>
+
+</body
+
+></html>
