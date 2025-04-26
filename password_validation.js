@@ -48,7 +48,7 @@ function password_validation() {
                  * So each error will be displayed on a new line. 
                  */
                 password_status.innerHTML = messages.join("<br>"); 
-                password_status.style.color = "red"; //changes text to green.
+                password_status.style.color = "red"; //changes text to red.
             }
         });
 
