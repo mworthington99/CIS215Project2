@@ -2,6 +2,7 @@
 /**
  * @author Matthew Worthington
  * Sets up email verification on the server side
+ * and encodes results as JSON that the JS can break up and understand
  */
 require ('dbconfig.php');
 $db = connectDB();

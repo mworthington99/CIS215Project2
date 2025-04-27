@@ -69,6 +69,7 @@ function validate(){
     }
     return "";
 
+    # user created password
     if(!$_POST(["userpw-name"])) {
         return "Please enter a password.";
     }
@@ -85,7 +86,8 @@ function sanitize(){
     $version = (int)$_POST["version"];
     $favorite = htmlentities($_POST["favorite"]);
     $hashed_user = password_hash($_POST["userpw-name"], PASSWORD_DEFAULT);
-    return array($email, $age, $gender, $version, $favorite, $hashed_user);
+    $os = htmlentities($_POST["operating-system"]);
+    return array($email, $age, $gender, $version, $favorite, $hashed_user, $os);
 }
 
 /**
@@ -93,29 +95,10 @@ function sanitize(){
  */
 function add_data(){
     global $db;
-    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password) values (?,?,?,?,?,?)");
+    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os) values (?,?,?,?,?,?,?)");
     $prep_insert->execute(sanitize());
 }
 
-/**
- * @author Matthew Worthington
- * function that updates user info from the user-edit page
- */
-function update_data() {
-    global $db;
-    $prep_update = $db->prepare("UPDATE project_data 
-                                SET email = ?, 
-                                    age = ?, 
-                                    gender = ?, 
-                                    version = ?, 
-                                    favorite = ?, 
-                                    password = ? 
-                                WHERE email = ?");
-    $data = sanitize();
-    // Add the email again as the WHERE clause parameter
-    $data[] = $data[0];
-    $prep_update->execute($data);
-}
 
 if(validate()==""){
     print("<div>Thanks for your submission!</div>");
@@ -127,25 +110,6 @@ if(validate()==""){
     print("<div><a href='project1sol.php'>Try submitting again here</a></div>");
 }
 
-
-/**
- * @author Matthew Worthington
- * uses the hidden input from user-edit to determine if the user gets here from the edit form or not.
- */
-if(isset($_POST["from-edit"])) {
-    $data = sanitize();
-    $userEmail = $data[0];
-    $pw_stmt = $db->prepare("SELECT password FROM project_data WHERE email = ?");
-    $pw_stmt->execute([$userEmail]);
-    $testPW = $pw_stmt->fetchColumn();
-    
-    if(!password_verify($_POST["userpw-name"], $testPW)) {
-        print("<div>Sorry your password was incorrect!</div>");
-    } else {
-        print("<div>Data has been updated! Thank you!</div>");
-        update_data();
-    }
-}
 ?>
 
 <input type = "color" id = "colorPicker"/>
@@ -154,6 +118,4 @@ if(isset($_POST["from-edit"])) {
 <input type = "color" id = "colorPicker"/>
 <button onclick = "fontColor()">Change Font Color</button>
 
-</body
-
-></html>
+</body></html>
