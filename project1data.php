@@ -19,17 +19,8 @@ ini_set('display_errors', 1);
         <script src="delete-data.js" defer></script>
     </head>
 <body>
-<!--@author: Clayton Allen
-    Initializes form for deleting data.
-    -->
-    <form id="delete-data-form">
-        <label for="email-id">Enter email here to delete your data:</label>
-        <input type="email" name="email-name" id="email-id">
-        <button type="submit">Delete my data</button>
-    </form>
-    <!--Place holder for response message after datas deleted-->
-    <p id="ResponseMessage"></p>   
-<!--**Delete data form end**-->
+
+    
 <?php
 
 require ('dbconfig.php');
@@ -230,6 +221,23 @@ function pretty_display($data_array){
 }
 
 print("<h1>Survey Data</h1>");
+print("<h2>Search the data</h2>");
+echo '
+    <!--@author Clayton Allen Initializing search bar-->
+    <input type="text" id="searchInput" placeholder="Enter a keyword...">
+    <button onclick="searchData()">Search</button>
+    <div id="searchResults"></div>
+';
+print('<h2>Delete the data</h2>');
+echo '<!--@author: Clayton Allen Initializes form for deleting data.-->
+<form id="delete-data-form">
+    <label for="email-id">Enter email here to delete your data:</label>
+    <input type="email" name="email-name" id="email-id">
+    <button type="submit">Delete my data</button>
+</form>
+<!--Place holder for response message after datas deleted-->
+<p id="ResponseMessage"></p>   
+<!--**Delete data form end**-->';
 
 $prep_selectnum = $db->prepare("SELECT count(email) FROM project_data");
 $prep_selectnum->execute();
