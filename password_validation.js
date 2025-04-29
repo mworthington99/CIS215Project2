@@ -23,7 +23,7 @@
  */
 
 function password_validation() {
-    // () => is a shorter way of writing function in javascript. 
+    
     document.addEventListener("DOMContentLoaded", () => {
         const password_input = document.getElementById("userpw-id");
         const password_status = document.getElementById("pw-status");
