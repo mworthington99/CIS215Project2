@@ -1,9 +1,26 @@
 /**
  * @author Clayton Allen
- * @description This file is used to avoid inline calls on 
- * project1 data. This file is using an AJAX call.
+ * @description This file is reworked.
+ * It is now simple and faster.
+ * This file will facilatate the process of deleting
+ * a users data off of MariaDB
+ * It uses an DOMContentLoaded event listner.
+ * It then declares 3 constants.
+ * @constant emailInput
+ * This constant retrieves whatever email the user types
+ * @constant email 
+ * This is a constant to retrieve the value of that email
+ * for smoother processing
+ * @constant responseMessage 
+ * This is for the placeholder div in project1data.php
+ * This will provide the user with a response message
+ * There is not a lot of error handling done here because
+ * we did not cover catch in class. 
  * 
- * @Methods 
+ *  @method fetch
+ * We use fetch to establish the communication between 
+ * the client side and the server side/
+ * 
  * 
  * 
  * 
