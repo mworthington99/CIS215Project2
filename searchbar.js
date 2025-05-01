@@ -26,7 +26,7 @@ function searchData() {
      * @constant response is for the response message that will be communicated
      * back via php.
      */
-    const response = document.getElementById("ResponseMessage");
+    const response = document.getElementById("searchResults");
     /**
      * This fetch statement will communicate with search-data.php
      * */

@@ -42,6 +42,12 @@
             }
 
         }
+        elseif(!in_array($search_value,$access_array)){
+            echo "That value was not found ***Try email";
+        }
+        elseif($search_value == NULL){
+            echo "No input detected";
+        }
         else{
             echo "Unable to esablish a connection";
         }
@@ -51,8 +57,3 @@
 
 
 ?>
-<!-- 
-    Problem solving: 
-    Should I use a for loop for all the values in from 
-    
--->
