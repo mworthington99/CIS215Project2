@@ -2,6 +2,9 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
+        <!-- author: Matthew Worthington
+            sets inital styling for the strength bar and meter, that can be modified by password-strngth.js
+         -->
         <style>
         #strengthMeter {
             height: 10px;
