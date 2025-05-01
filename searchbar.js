@@ -34,19 +34,19 @@ function searchData() {
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: 'keyword=' + encodeURIComponent(search_value)
+        body: 'search_value=' + encodeURIComponent(search_value)
 
     /**
      * This will ensure that the text in my html will be readable in plaintext when a response is sent by
      * my 
      */
-    .then(response => response.text())
+    })
+    .then(res => res.text())
     /**
      * This what will facilitate the population of my placeholder in project1data.php with ID = "Response message" 
      * This response will generate from search-data.php 
      **/
     .then(data => {
-        response.innerText = data;
-        })
+        response.innerText = data; 
     });
 }
