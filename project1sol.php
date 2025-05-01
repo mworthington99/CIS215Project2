@@ -6,6 +6,7 @@
         <script src="password_validation.js" defer></script>
         <script src="background_color.js" defer></script>
         <script src="other-textbox.js" defer></script>
+        <script src="password-strength.js" defer></script>
     </head>
 <body>
 

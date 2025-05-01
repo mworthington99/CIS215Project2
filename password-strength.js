@@ -1,3 +1,7 @@
+/**
+ * @author Matthew Worthington
+ * shows a password strength meter as the user is typing thier password using the same criteria as password_validation.js
+ */
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('userpw-id');
     const strengthBar = document.getElementById('strength-bar');
