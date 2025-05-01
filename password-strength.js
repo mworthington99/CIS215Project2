@@ -4,8 +4,8 @@
  */
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('userpw-id');
-    const strengthBar = document.getElementById('strength-bar');
-    const strengthMeter = document.getElementById('strength-meter');
+    const strengthBar = document.getElementById('strengthBar');
+    const strengthMeter = document.getElementById('strengthMeter');
     
     function checkPasswordStrength(password) {
         let strength = 0;
@@ -31,17 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Update the strength indicator
-        strengthMeter.style.width = strength + '%';
+        strengthBar.style.width = strength + '%';
         
         // Update colors based on strength
         if (strength <= 25) {
-            strengthMeter.style.backgroundColor = '#ff4444';
+            strengthBar.style.backgroundColor = '#ff4444';
         } else if (strength <= 50) {
-            strengthMeter.style.backgroundColor = '#ffbb33';
+            strengthBar.style.backgroundColor = '#ffbb33';
         } else if (strength <= 75) {
-            strengthMeter.style.backgroundColor = '#00C851';
+            strengthBar.style.backgroundColor = '#00C851';
         } else {
-            strengthMeter.style.backgroundColor = '#007E33';
+            strengthBar.style.backgroundColor = '#007E33';
         }
     }
     

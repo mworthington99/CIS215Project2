@@ -2,6 +2,19 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
+        <style>
+        #strengthMeter {
+            height: 10px;
+            width: 300px;
+            background: "white";
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        #strengthBar {
+            height: 100%;
+            width: 0%;
+        }
+        </style>
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
         <script src="background_color.js" defer></script>
