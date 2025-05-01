@@ -11,8 +11,9 @@
  * On click it will execute the rest of search data. 
  * 
  */
-const searchButton = document.querySelector('button[onclick="searchData()"]'); 
 function searchData() {
+    const searchButton = document.querySelector('button[onclick="searchData()"]'); 
+
     /**
      * @constant search_input Gets the input from user
      */
@@ -43,7 +44,7 @@ function searchData() {
     })
     .then(res => res.text())
     /**
-     * This what will facilitate the population of my placeholder in project1data.php with ID = "Response message" 
+     * This is what will facilitate the population of my placeholder in project1data.php with ID = "Response message" 
      * This response will generate from search-data.php 
      **/
     .then(data => {
