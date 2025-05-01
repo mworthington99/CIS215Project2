@@ -4,22 +4,48 @@
  * using a MariaDB (Did some research and it is an opensource MySQL data base that GCCs technology dept. must have acquired)
  * @docs
  * mySQL function documentation for SQL Statements https://mariadb.com/kb/en/sql-statements/
- * @constant searchButton Will trigger an AJAX request when clicked to search data and display it.
  * 
  */
+/**
+ * @constant searchButton is a querySelector that will wait until the submit button for the search bar is clicked.
+ * On click it will execute the rest of search data. 
+ * 
+ */
+const searchButton = document.querySelector('button[onclick="searchData()"]'); 
 function searchData() {
-    const searchButton = document.querySelector('button[onclick="searchData()"]'); //
-    //prefer to have this event handler to ensure the DOM is loaded
-    document.addEventListener("DOMContentLoaded", function() {
-        const keyword = document.getElementById('searchInput').value;
-        fetch('search-data.php',{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: 'keyword=' + encodeURIComponent(keyword)
+    /**
+     * @constant search_input Gets the input from user
+     */
+    const search_input = document.getElementById("searchInput");
+    /**
+     * @constant search_value Set @constant search_input to a readable value.
+     */
+    const search_value = search_input.value; 
+    /**
+     * @constant response is for the response message that will be communicated
+     * back via php.
+     */
+    const response = document.getElementById("ResponseMessage");
+    /**
+     * This fetch statement will communicate with search-data.php
+     * */
+    fetch('search-data.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'keyword=' + encodeURIComponent(search_value)
 
+    /**This will ensure that the text in my html will be readable in plaintext when a response is sent by
+     * my 
+     */
+    .then(response => response.text())
+    /**
+     * This what will facilitate the population of my placeholder in project1data.php with ID = "Response message" 
+     * This response will generate from search-data.php 
+     **/
+    .then(data => {
+        response.innerText = data;
         })
-        .then()
     });
 }

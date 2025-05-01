@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <!--@Author: Clayton Allen
+        @Author: *Elliot insert your name here*
+        @description Runs the java script.
+        -->
         <title>PHP Questions: Data Page</title>
         <script src="background_color.js" defer></script>
+        <script>console.log("In line script works")</script>
+        <script src="delete-data.js" defer></script>
+        <script src="searchbar.js" defer></script>
     </head>
 <body>
 
@@ -10,17 +17,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>PHP Questions: Data</title>
-        <script>console.log("In line script works")</script>
-        <script src="delete-data.js" defer></script>
-    </head>
-<body>
-
-    
+  
 <?php
 
 require ('dbconfig.php');
@@ -290,11 +287,6 @@ if(isset($_GET["from-update"])) {
 }
 
 ?>
-<!--Author: Clayton Allen
-    Description: Link to delete-data.js -->
-
-<!--*End*-->
-
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
 
