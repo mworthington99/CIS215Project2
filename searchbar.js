@@ -36,7 +36,8 @@ function searchData() {
         },
         body: 'keyword=' + encodeURIComponent(search_value)
 
-    /**This will ensure that the text in my html will be readable in plaintext when a response is sent by
+    /**
+     * This will ensure that the text in my html will be readable in plaintext when a response is sent by
      * my 
      */
     .then(response => response.text())

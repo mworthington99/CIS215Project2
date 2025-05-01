@@ -1,0 +1,58 @@
+<?php
+    /**
+     * @author Clayton Allen
+     * 
+     * @description This file will retrive a column of data from mariaDB
+     * 
+     * 
+     * 
+     */
+    ini_set('display_errors', 1);
+    error_reporting(E_ALL);
+
+    require ('dbconfig.php');
+    $db = connectDB();
+    //gets search value from ajax request
+    if(isset($_POST['search_value'])){
+        $search_value = $_POST['search_value'];
+        /*
+         * @constant access_array of allowed searchable collumns
+         * This list is detriment to the overall security
+         * of are data, we don't want to allow people to be able
+         * to view others passwords. 
+         */
+        $access_array = ['email', 'age','gender','operating-system','favorite'];
+        //getting column from mariaDB
+        if(in_array($search_value,$access_array)){
+            $getColumn = $db->prepare("SELECT $search_value FROM project_data");
+            $getColumn->execute();
+
+            $columnData = $getColumn->fetchAll(PDO::FETCH_COLUMN);
+            /**
+             * @docs https://www.php.net/manual/en/pdostatement.fetchcolumn.php
+             * Will return a the column. 
+             */
+
+            if(count($columnData) > 0){
+                foreach ($columnData as $value){
+                    echo $value . "<br>";
+                }
+            } else{
+                echo "No Data found in this column";
+            }
+
+        }
+        else{
+            echo "Unable to esablish a connection";
+        }
+    }
+
+    
+
+
+?>
+<!-- 
+    Problem solving: 
+    Should I use a for loop for all the values in from 
+    
+-->
