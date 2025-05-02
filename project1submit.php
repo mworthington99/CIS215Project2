@@ -30,7 +30,7 @@ function validate(){
         return "Error: Incorrect Password.";
     }
     # Next, let's make sure everything was filled in:
-    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL)){
+    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL) or ($_POST["operating-system"])){
         return "Error: You have not filled in all questions.";
     }
     # Now, let's make sure the results make sense.
@@ -92,10 +92,12 @@ function sanitize(){
 
 /**
  * Add Data adds sanitized data into SQL safely
+ * 
+ * Error with sanatize function need to add variable for new password.
  */
 function add_data(){
     global $db;
-    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os) values (?,?,?,?,?,?,?)");
+    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite) values (?,?,?,?,?,?,?)");
     $prep_insert->execute(sanitize());
 }
 
