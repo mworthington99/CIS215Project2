@@ -7,10 +7,9 @@ function backgroundColor(){
 
 }
 
-function fontColor(){
+document.getElementById("fontColorButton").addEventListener("click",function() {
 
-    const colorPicker = document.getElementById('colorPicker');
-    const text = document.getElementById('text');
-    text.style.color = colorPicker.value;
+    var color = document.getElementById("colorPicker").value;
+    document.getElementById("text").style.color = color;
 
-}
+});
