@@ -126,6 +126,6 @@ for($i=13;$i<65;$i=$i + 5){
 
 </form>
 
-<div>If you are a returning user, and wish to edit your data <a href='user-edit.php'>click here</a></div>
+<div>If you are a returning user, and wish to edit your data <a href='user-edit.php'>click here</a></div><br>
 <div><a href='project1data.php'>View data page here</a></div>
 </body></html>

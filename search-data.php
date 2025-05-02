@@ -38,8 +38,9 @@
             */
             if(count($columnData) > 0){
                 foreach ($columnData as $value){
-                    echo $value . "<br>";
+                    echo $value . ", "; 
                 }
+                
                 /**
                  * If time permits I'd like to add statisics 
                  * to what ever column pulled 
@@ -52,7 +53,11 @@
                  * Etc. is my idea
                  */
             } else{
-                echo "No Data found in this column";
+                echo "<!DOCTYPE html>
+                <html>
+
+                    No Data found in this column
+                </html>";
             }
 
         }
