@@ -2,9 +2,27 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
+        <!-- author: Matthew Worthington
+            sets inital styling for the strength bar and meter, that can be modified by password-strngth.js
+         -->
+        <style>
+        #strengthMeter {
+            height: 10px;
+            width: 300px;
+            background: "white";
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        #strengthBar {
+            height: 100%;
+            width: 0%;
+        }
+        </style>
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
         <script src="background_color.js" defer></script>
+        <script src="other-textbox.js" defer></script>
+        <script src="password-strength.js" defer></script>
     </head>
 <body>
 
@@ -26,6 +44,9 @@
 <input type="password" name="userpw-name" id="userpw-id" required>
 <!--Status for password placeholder-->
 <div id="pw-status"></div>
+<div id = "strengthMeter">
+    <div id = "strengthBar"></div>
+</div>
 </fieldset>
 
 <div>
@@ -59,6 +80,14 @@ for($i=13;$i<65;$i=$i + 5){
     <option value="ag">Agender</option>
     <option value="ot">Choose not to say/Other</option>
 </select>
+</div>
+
+<div id="other-gender-div">
+    <label>Please specify your gender: </label>
+    <div>
+        Please keep your answer to 20 characters for fewer.
+    </div>
+    <input type="text" name="other-gender" id="other-gender">
 </div>
 
 <!-- Elliott created extra question -->
