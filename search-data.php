@@ -33,10 +33,24 @@
              * Will return a the column. 
              */
 
+            /**
+             * logic to check if $column datas size is > 0
+            */
             if(count($columnData) > 0){
                 foreach ($columnData as $value){
                     echo $value . "<br>";
                 }
+                /**
+                 * If time permits I'd like to add statisics 
+                 * to what ever column pulled 
+                 * Average age if age
+                 * 
+                 * How many users
+                 * 
+                 * Count of genders
+                 * 
+                 * Etc. is my idea
+                 */
             } else{
                 echo "No Data found in this column";
             }
