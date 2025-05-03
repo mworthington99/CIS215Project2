@@ -10,13 +10,23 @@
         <script>console.log("In line script works")</script>
         <script src="delete-data.js" defer></script>
         <script src="searchbar.js" defer></script>
+        <script src="dropdown.js" defer></script>
     </head>
+<?php print("<h1>Survey Data</h1>"); ?>
 <body>
-
-<?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-?>
+    <h2>Filter <Data></Data></h2>
+    <label for="dataDisplay">Filter by Category</label>
+    <select id="dataDisplay">
+        <option value="All">All</option>
+        <option value="Age Data">Age</option>
+        <option value="Gender Data">Gender</option>
+        <option value="PHP Version Data">PHP Version</option>
+        <option value="Favorite Thing">Favorite Thing</option>
+    </select>
+    <?php
+        error_reporting(E_ALL);
+        ini_set('display_errors', 1);
+    ?>
   
 <?php
 
@@ -217,7 +227,7 @@ function pretty_display($data_array){
     print("</div>");
 }
 
-print("<h1>Survey Data</h1>");
+
 print("<h2>Search the data</h2>");
 echo '
     <!--@author Clayton Allen Initializing search bar-->
@@ -243,19 +253,28 @@ $num = $num_data[0][0];
 
 print("<h2>Number of respondents:</h2>");
 print("<div>$num</div>");
-print("<h2>Age Data:</h2>");
-pretty_display(age_distribution());
-print("<h2>Gender Data:</h2>");
-pretty_display(gender_distribution());
-print("<h2>PHP Version Data:</h2>");
-pretty_display(version_distribution());
-
-
-print("<h2>Favorite thing about PHP:</h2>");
-print("<div>");
-foreach(favorite_thing() as $value){
-    print("<div>$value</div>");
-}
+/**@author Clayton Allen
+ * @updated I updated the wrappers for all data Functions currently being displayed here.
+ * This will make it so my java script can easily filter this data and chose what to be
+ * from the drop down menu.
+ */
+print('<div class="data-section" data-category="Age Data">');
+    print("<h2>Age Data:</h2>");
+    pretty_display(age_distribution());
+print('</div>');
+print('<div class="data-section" data-category="Gender Data">');
+    print("<h2>Gender Data:</h2>");
+    pretty_display(gender_distribution());
+print('</div>');
+print('<div class="data-section" data-category="PHP Version Data">');
+    print("<h2>PHP Version Data:</h2>");
+    pretty_display(version_distribution());
+print('</div>');
+print('<div class="data-section" data-category="Favorite Thing">');
+    print("<h2>Favorite thing about PHP:</h2>");
+    foreach(favorite_thing() as $value){
+        print("<div>$value</div>");
+    }
 print("</div>");
 
 /** Author: Matthew Worthington 

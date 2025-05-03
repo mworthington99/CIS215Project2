@@ -22,4 +22,4 @@ Sprint 1
 2. Delete Data      | V |
 Sprint 2
 3. Search Bar       | V |
-4. Drop Down        |  |
+4. Drop Down        | V |
