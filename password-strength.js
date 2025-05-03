@@ -6,7 +6,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const passwordInput = document.getElementById('userpw-id');
     const strengthBar = document.getElementById('strengthBar');
-    const strengthMeter = document.getElementById('strengthMeter');
     
     function checkPasswordStrength(password) {
         let strength = 0;
@@ -17,17 +16,17 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Uppercase check
-        if (/[A-Z]/.test(password)) {
+        if (/[A-Z]/.test(password)) { //regex for checking the password for Uppercase letters
             strength += 25;
         }
         
         // Lowercase check
-        if (/[a-z]/.test(password)) {
+        if (/[a-z]/.test(password)) { //regex for checking the password for lowercase letters
             strength += 25;
         }
         
         // Numbers and special characters check
-        if (/[0-9!@#$%^&*]/.test(password)) {
+        if (/[0-9!@#$%^&*()]/.test(password)) { //regex for checking the password for numbers and special characters
             strength += 25;
         }
         

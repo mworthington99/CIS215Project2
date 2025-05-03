@@ -30,7 +30,7 @@ function validate(){
         return "Error: Incorrect Password.";
     }
     # Next, let's make sure everything was filled in:
-    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL) or ($_POST["operating-system"])){
+    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL) or ($_POST["operating-system"] == NULL)){
         return "Error: You have not filled in all questions.";
     }
     # Now, let's make sure the results make sense.
@@ -74,6 +74,12 @@ function validate(){
         return "Please enter a password.";
     }
     return "";
+
+    # only validates the other textbox if it is not empty
+    if(!empty($_POST["other-gender"]) && strlen($_POST["other-gender"]) > 20) {
+        return "Please keep your answer to less than 20 characters.";
+    }
+    return "";
 }
 
 /**
@@ -87,7 +93,12 @@ function sanitize(){
     $favorite = htmlentities($_POST["favorite"]);
     $hashed_user = password_hash($_POST["userpw-name"], PASSWORD_DEFAULT);
     $os = htmlentities($_POST["operating-system"]);
-    return array($email, $age, $gender, $version, $favorite, $hashed_user, $os);
+    if (!empty($_POST["other-gender"])) {
+        $other = htmlentities($_POST["other-gender"]);
+        return array($email, $age, $gender, $version, $favorite, $hashed_user, $os, $other);
+    } else {
+        return array($email, $age, $gender, $version, $favorite, $hashed_user, $os);
+    }
 }
 
 /**
@@ -97,8 +108,17 @@ function sanitize(){
  */
 function add_data(){
     global $db;
-    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os) values (?,?,?,?,?,?,?)");
-    $prep_insert->execute(sanitize());
+    $sanitized_data = sanitize();
+    try {
+        if (count($sanitized_data) == 8) {
+            $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os, gender_other) values (?,?,?,?,?,?,?,?)");
+        } else {
+            $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os) values (?,?,?,?,?,?,?)");
+        }
+        $prep_insert->execute($sanitized_data);
+    } catch (PDOException $e) {
+        print("Database error: " . $e->getMessage());
+    }
 }
 
 

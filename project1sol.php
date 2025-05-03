@@ -82,6 +82,9 @@ for($i=13;$i<65;$i=$i + 5){
 </select>
 </div>
 
+<!-- @author Matthew Worthington 
+ the textbox to show up when the user selects other in the gender dropdown
+ -->
 <div id="other-gender-div">
     <label>Please specify your gender: </label>
     <div>
