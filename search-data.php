@@ -21,7 +21,7 @@
          * of are data, we don't want to allow people to be able
          * to view others passwords. 
          */
-        $access_array = ['email', 'age','gender','operating-system','favorite'];
+        $access_array = ['email', 'age','gender','os','favorite'];
         //getting column from mariaDB
         if(in_array($search_value,$access_array)){
             $getColumn = $db->prepare("SELECT $search_value FROM project_data");
@@ -37,27 +37,15 @@
              * logic to check if $column datas size is > 0
             */
             if(count($columnData) > 0){
+                /**Formatting data and how I want it to be displayed */
+                echo $search_value . " List:" . "\n";
                 foreach ($columnData as $value){
-                    echo $value . ", "; 
+                    echo  "| ". $value . " |" ."\n " . "________________________" . "\n";
                 }
                 
-                /**
-                 * If time permits I'd like to add statisics 
-                 * to what ever column pulled 
-                 * Average age if age
-                 * 
-                 * How many users
-                 * 
-                 * Count of genders
-                 * 
-                 * Etc. is my idea
-                 */
             } else{
-                echo "<!DOCTYPE html>
-                <html>
-
-                    No Data found in this column
-                </html>";
+                echo "No Data found in this column"; 
+            
             }
 
         }
