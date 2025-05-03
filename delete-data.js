@@ -1,16 +1,26 @@
 /**
  * @author Clayton Allen
- * @description This file is used to avoid inline calls on 
- * project1 data. This file is using an AJAX call.
+ * @description This file is reworked.
+ * It is now simple and faster.
+ * This file will facilatate the process of deleting
+ * a users data off of MariaDB
+ * It uses an DOMContentLoaded event listner.
+ * It then declares 3 constants.
+ * @constant emailInput
+ * This constant retrieves whatever email the user types
+ * @constant email 
+ * This is a constant to retrieve the value of that email
+ * for smoother processing
+ * @constant responseMessage 
+ * This is for the placeholder div in project1data.php
+ * This will provide the user with a response message
+ * There is not a lot of error handling done here because
+ * we did not cover catch in class. 
  * 
- * @documentation https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest
- * Used this for server interaction. 
- * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent
- * Used this method within my XML 
- * @Methods used from this open(). This will be used to begin a link between the
- * javascript file and the php file. 
- * setRequestHeader() Will be used to establish security.
- * send() will be used to send and encode the email data.
+ *  @method fetch
+ * We use fetch to establish the communication between 
+ * the client side and the server side/
+ * 
  * 
  * 
  * 
@@ -23,49 +33,40 @@ function delete_data(){
      * on @line 244 in @file project1data.php
      */
     document.addEventListener("DOMContentLoaded", function(){   
-        const form = document.getElementById("delete-data-form");  
+        const form = document.getElementById("delete-data-form"); //gets the form ID
         /**
-         * Below is an event listener that will trigger when the
-         * submit button is pressed. 
+         * @event
+         * Adds an event listener on the action of the submit button being clicked
+         * @constant emailInput - gets email element
+         * @constant responseMessage - gets response message placeholder ID.
+         * @constant email gets the value of the email. Avoids null values. 
          */
-        form.addEventListener("submit", function(event){
-            event.preventDefault();
-            /**
-             * @constant email will grab the email from the html form. 
-             * @constant responseMessage is initiallizing the response on the webform
-             * to let the user know the status of there data. i.e.
-             * "Successfully Deleted", "Error Occured"
-             * @constant xhr shortened accronym for Xml-Https-Request
-             * */
+        form.addEventListener("submit", function (event){
+            event.preventDefault(); 
 
-            const email = document.getElementById("email-id").value;
+            const emailInput = document.getElementById("email-id");
             const responseMessage = document.getElementById("ResponseMessage");
-            console.log("before");
-            const xhr = new XMLHttpRequest();
-            /**
-             * This is the process to send the data from the client side to the
-             * server using an AJAX request.  
-             */
-            xhr.open("POST", "delete-data.php"); 
-            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //application/x-www-form-urlencoded is the default value for requestHeaders
-            xhr.send("email=" + encodeURIComponent(email));  
-            console.log("-after");
-            xhr.onload = function() {
-                //checks status code to ensure communication has been establi c  shed client side to server end
-                //Triple equals matches value and type. Its 'Strict' equality. 
-                if (xhr.status === 200) {
-                    console.log("xhr.status === 200"); //this is good
-                    responseMessage.textContent = xhr.responseText;
-                }
-                //Error handling if a the connection is not establish.
-                else{
-                    console.log("Error: Could not connect to SQL Server on CSN Linux");
-                    responseMessage.textContent = "We cannot establish connection at this time";
-                }
-            }
 
+            const email = emailInput.value;
+            /**
+             * @method fetch
+             * @description Manually prepare and encrypt the data being sent using a fetch statement. 
+             */
+            fetch("delete-data.php", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: "email=" + encodeURIComponent(email)
+            })
+            /**Server Responses */
+            .then(response => response.text()) 
+            .then(data => {
+                responseMessage.textContent = data;  
+            })
         });
     });
 }
+
 //Call function
 delete_data();

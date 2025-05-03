@@ -2,9 +2,26 @@
 <html>
     <head>
         <title>Survey: PHP Questions</title>
+        <!-- author: Matthew Worthington
+            sets inital styling for the strength bar and meter, that can be modified by password-strngth.js
+         -->
+        <style>
+        #strengthMeter {
+            height: 10px;
+            width: 300px;
+            background: "white";
+            border-radius: 5px;
+            margin-top: 8px;
+        }
+        #strengthBar {
+            height: 100%;
+            width: 0%;
+        }
+        </style>
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
         <script src="background_color.js" defer></script>
+<<<<<<< HEAD
         <script src="tooltip.js" defer></script>
         <script src="highlight.js" defer></script>
 
@@ -50,10 +67,15 @@
             .unanswered {
 
                 border: 2px solid red;
+                background_color: #ffe6e6;
 
             }
 
         </style>
+=======
+        <script src="other-textbox.js" defer></script>
+        <script src="password-strength.js" defer></script>
+>>>>>>> ed0f1cc1cd0b6b118deaa7d1207430af1ce27c94
     </head>
 <body>
 
@@ -89,7 +111,13 @@
 <div>
 <!--Status for password placeholder-->
 <div id="pw-status"></div>
+<<<<<<< HEAD
 
+=======
+<div id = "strengthMeter">
+    <div id = "strengthBar"></div>
+</div>
+>>>>>>> ed0f1cc1cd0b6b118deaa7d1207430af1ce27c94
 </fieldset>
 
 <div class = "tooltip-container">
@@ -131,6 +159,14 @@ for($i=13;$i<65;$i=$i + 5){
     <div role = "tooltip" id = "gender-tooltip">
         <p>Please select a gender.</p>
     </div>
+</div>
+
+<div id="other-gender-div">
+    <label>Please specify your gender: </label>
+    <div>
+        Please keep your answer to 20 characters for fewer.
+    </div>
+    <input type="text" name="other-gender" id="other-gender">
 </div>
 
 <!-- Elliott created extra question -->
@@ -178,5 +214,6 @@ for($i=13;$i<65;$i=$i + 5){
 
 </form>
 
+<div>If you are a returning user, and wish to edit your data <a href='user-edit.php'>click here</a></div><br>
 <div><a href='project1data.php'>View data page here</a></div>
 </body></html>

@@ -12,8 +12,8 @@ Matts Tasks
 Elliotts Task
 1. Extra Question   | V |
 2. Custom Color     | V |
-3. Highlight empty  |  |
-4. Tool tips        |  |
+3. Highlight empty  | V |
+4. Tool tips        | V |
 5. Char Count       |  |
 
 Claytons Tasks
@@ -21,5 +21,5 @@ Sprint 1
 1. Better Passwords (Front End) | V |
 2. Delete Data      | V |
 Sprint 2
-3. Search Bar       |  |
+3. Search Bar       | V |
 4. Drop Down        |  |

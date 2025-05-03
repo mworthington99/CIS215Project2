@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
+    <!--@Author: Clayton Allen
+        @Author: *Elliot insert your name here*
+        @description Runs the java script.
+        -->
         <title>PHP Questions: Data Page</title>
         <script src="background_color.js" defer></script>
+        <script>console.log("In line script works")</script>
+        <script src="delete-data.js" defer></script>
+        <script src="searchbar.js" defer></script>
     </head>
 <body>
 
@@ -10,26 +17,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 ?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>PHP Questions: Data</title>
-        <script>console.log("In line script works")</script>
-        <script src="delete-data.js" defer></script>
-    </head>
-<body>
-<!--@author: Clayton Allen
-    Initializes form for deleting data.
-    -->
-    <form id="delete-data-form">
-        <label for="email-id">Enter email here to delete your data:</label>
-        <input type="email" name="email-name" id="email-id">
-        <button type="submit">Delete my data</button>
-    </form>
-    <!--Place holder for response message after datas deleted-->
-    <p id="ResponseMessage"></p>   
-<!--**Delete data form end**-->
+  
 <?php
 
 require ('dbconfig.php');
@@ -230,6 +218,23 @@ function pretty_display($data_array){
 }
 
 print("<h1>Survey Data</h1>");
+print("<h2>Search the data</h2>");
+echo '
+    <!--@author Clayton Allen Initializing search bar-->
+    <input type="text" id="searchInput" placeholder="Enter a keyword...">
+    <button onclick="searchData()">Search</button>
+    <div id="searchResults"></div>
+';
+print('<h2>Delete the data</h2>');
+echo '<!--@author: Clayton Allen Initializes form for deleting data.-->
+<form id="delete-data-form">
+    <label for="email-id">Enter email here to delete your data:</label>
+    <input type="email" name="email-name" id="email-id">
+    <button type="submit">Delete my data</button>
+</form>
+<!--Place holder for response message after datas deleted-->
+<p id="ResponseMessage"></p>   
+<!--**Delete data form end**-->';
 
 $prep_selectnum = $db->prepare("SELECT count(email) FROM project_data");
 $prep_selectnum->execute();
@@ -253,12 +258,35 @@ foreach(favorite_thing() as $value){
 }
 print("</div>");
 
+/** Author: Matthew Worthington 
+ * Displays the user's info on data page, if they are from the edit data page
+*/
+if(isset($_GET["from-update"])) {
+    $prep_userData = $db->prepare("SELECT * FROM project_data WHERE email=?");
+    $prep_userData->execute([$_GET["email"]]);
+    $userData = $prep_userData->fetch(PDO::FETCH_ASSOC);
+    
+    if ($userData) {
+        print "<h2>Your Updated Data:</h2>";
+        print "<div>";
+        print "<table border='1'>";
+        print "<tr><th>Field</th><th>Value</th></tr>";
+        foreach ($userData as $key => $value) {
+            if ($key !== 'password' || $key !== 'id') { // Don't display password or id
+                print "<tr>";
+                print "<td>" . $key . "</td>";
+                print "<td>" . $value . "</td>";
+                print "</tr>";
+            }
+        }
+        print "</table>";
+        print "</div>";
+    } else {
+        print "<div class='error'>No data found for this email address.</div>";
+    }
+}
+
 ?>
-<!--Author: Clayton Allen
-    Description: Link to delete-data.js -->
-
-<!--*End*-->
-
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
 

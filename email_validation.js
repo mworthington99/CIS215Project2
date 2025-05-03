@@ -1,7 +1,8 @@
 /**
  * @author Matthew Worthington
  * does client side verification of email so the user sees in realtime if email is valid or not
- * 
+ * uses check_email.php to get a JSON response and uses that key and value to display a message in a color to the user based on validity 
+ * and availability of the email
  */
 function checkEmail() {
     const email = document.getElementById('email-id').value;
@@ -28,4 +29,4 @@ document.addEventListener('DOMContentLoaded', function() {
         emailInput.addEventListener('input', checkEmail);
     }
     checkEmail();
-});
+}); 

@@ -23,10 +23,11 @@
  */
 
 function password_validation() {
+    
     document.addEventListener("DOMContentLoaded", () => {
         const password_input = document.getElementById("userpw-id");
         const password_status = document.getElementById("pw-status");
-
+        
         password_input.addEventListener("input", () => {
             const password = password_input.value;
             let messages = []; //array object for all messages that can be displayed for errors in password strength.
@@ -35,8 +36,8 @@ function password_validation() {
             if(!/[a-z]/.test(password)) messages.push("Password must have at least one lowercase letter"); //regex explenation [a-z] all lowercase letters in regex
             if(!/[A-Z]/.test(password)) messages.push("Password must have at least one uppercase letter"); //regex explenation [A-Z] all uppercase letters in regex
             if(!/[!@#$%^&*()]/.test(password)) messages.push("Password must have at least one special charcter from *shift 1-9 on keyboard");
-            //messages.lenght (int) to 0 (int). I know I could probably use == here
-            if (messages.length === 0){
+            //messages.lenght (int) to 0 (int). 
+            if (messages.length == 0){
                 password_status.textContent = "Password has met all criteria";
                 password_status.style.color = "green"; //changes the text to green. CSS
             }
@@ -48,7 +49,7 @@ function password_validation() {
                  * So each error will be displayed on a new line. 
                  */
                 password_status.innerHTML = messages.join("<br>"); 
-                password_status.style.color = "red"; //changes text to green.
+                password_status.style.color = "red"; //changes text to red.
             }
         });
 

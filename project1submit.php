@@ -69,6 +69,7 @@ function validate(){
     }
     return "";
 
+    # user created password
     if(!$_POST(["userpw-name"])) {
         return "Please enter a password.";
     }
@@ -85,15 +86,18 @@ function sanitize(){
     $version = (int)$_POST["version"];
     $favorite = htmlentities($_POST["favorite"]);
     $hashed_user = password_hash($_POST["userpw-name"], PASSWORD_DEFAULT);
-    return array($email, $age, $gender, $version, $favorite, $hashed_user);
+    $os = htmlentities($_POST["operating-system"]);
+    return array($email, $age, $gender, $version, $favorite, $hashed_user, $os);
 }
 
 /**
  * Add Data adds sanitized data into SQL safely
+ * 
+ * Error with sanatize function need to add variable for new password.
  */
 function add_data(){
     global $db;
-    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password) values (?,?,?,?,?,?)");
+    $prep_insert = $db->prepare("INSERT INTO project_data (email, age, gender, version, favorite, password, os) values (?,?,?,?,?,?,?)");
     $prep_insert->execute(sanitize());
 }
 
@@ -109,13 +113,11 @@ if(validate()==""){
 }
 
 ?>
-
+<br>
 <input type = "color" id = "colorPicker"/>
 <button onclick = "backgroundColor()">Change Background Color</button>
 
 <input type = "color" id = "colorPicker"/>
 <button onclick = "fontColor()">Change Font Color</button>
 
-</body
-
-></html>
+</body></html>
