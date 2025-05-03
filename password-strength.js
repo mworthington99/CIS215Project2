@@ -35,13 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update colors based on strength
         if (strength <= 25) {
-            strengthBar.style.backgroundColor = '#ff4444';
+            strengthBar.style.backgroundColor = 'red';
         } else if (strength <= 50) {
-            strengthBar.style.backgroundColor = '#ffbb33';
+            strengthBar.style.backgroundColor = 'orange'; 
         } else if (strength <= 75) {
-            strengthBar.style.backgroundColor = '#00C851';
+            strengthBar.style.backgroundColor = '#00C851'; //hex value for light green
         } else {
-            strengthBar.style.backgroundColor = '#007E33';
+            strengthBar.style.backgroundColor = 'green';
         }
     }
     

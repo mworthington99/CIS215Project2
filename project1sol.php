@@ -21,61 +21,8 @@
         <script src="email_validation.js" defer></script>
         <script src="password_validation.js" defer></script>
         <script src="background_color.js" defer></script>
-<<<<<<< HEAD
-        <script src="tooltip.js" defer></script>
-        <script src="highlight.js" defer></script>
-
-        <style>
-
-            [role="tooltip"] {
-
-                visibility: hidden;
-                position: absolute;
-                top: 2rem;
-                left: 2rem;
-                background: black;
-                color: white;
-                border-radius: 0.25rem;
-                z-index: 1000;
-
-
-            }
-
-            [aria-describedby]:hover + [role="tooltip"],
-            [aria-describedby]:focus + [role="tooltip"] {
-
-                visibility: visible;
-
-            }
-
-            .tooltip-container {
-
-                position: relative;
-                display: inline-block;
-
-            }
-
-            
-            .tooltip-container [role="tooltip"] {
-
-                top: 100%;
-                left: 0;
-                margin-top: 0.5rem;
-
-            }
-
-            .unanswered {
-
-                border: 2px solid red;
-                background_color: #ffe6e6;
-
-            }
-
-        </style>
-=======
         <script src="other-textbox.js" defer></script>
         <script src="password-strength.js" defer></script>
->>>>>>> ed0f1cc1cd0b6b118deaa7d1207430af1ce27c94
     </head>
 <body>
 
@@ -111,13 +58,9 @@
 <div>
 <!--Status for password placeholder-->
 <div id="pw-status"></div>
-<<<<<<< HEAD
-
-=======
 <div id = "strengthMeter">
     <div id = "strengthBar"></div>
 </div>
->>>>>>> ed0f1cc1cd0b6b118deaa7d1207430af1ce27c94
 </fieldset>
 
 <div class = "tooltip-container">
