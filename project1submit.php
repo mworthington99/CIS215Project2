@@ -30,7 +30,7 @@ function validate(){
         return "Error: Incorrect Password.";
     }
     # Next, let's make sure everything was filled in:
-    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL) or ($_POST["operating-system"] == NULL)){
+    if(($_POST["email-name"] == NULL) or ($_POST["age"] == NULL) or ($_POST["gender"] == "") or ($_POST["version"] == NULL) or ($_POST["favorite"] == NULL)){
         return "Error: You have not filled in all questions.";
     }
     # Now, let's make sure the results make sense.

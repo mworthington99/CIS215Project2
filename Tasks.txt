@@ -12,8 +12,8 @@ Matts Tasks
 Elliotts Task
 1. Extra Question   | V |
 2. Custom Color     | V |
-3. Highlight empty  |  |
-4. Tool tips        |  |
+3. Highlight empty  | V |
+4. Tool tips        | V |
 5. Char Count       |  |
 
 Claytons Tasks
