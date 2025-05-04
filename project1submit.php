@@ -93,6 +93,7 @@ function sanitize(){
     $favorite = htmlentities($_POST["favorite"]);
     $hashed_user = password_hash($_POST["userpw-name"], PASSWORD_DEFAULT);
     $os = htmlentities($_POST["operating-system"]);
+    # @author Matthew Worthington added this to handle sanitization of the other textbox if it is not empty
     if (!empty($_POST["other-gender"])) {
         $other = htmlentities($_POST["other-gender"]);
         return array($email, $age, $gender, $version, $favorite, $hashed_user, $os, $other);
