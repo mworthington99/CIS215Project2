@@ -105,7 +105,7 @@ function sanitize(){
 /**
  * Add Data adds sanitized data into SQL safely
  * 
- * Error with sanatize function need to add variable for new password.
+ * @author Matthew Worthington completely reworked this to work with the new other textbox
  */
 function add_data(){
     global $db;
