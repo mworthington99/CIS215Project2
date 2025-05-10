@@ -23,12 +23,18 @@
         <script src="background_color.js" defer></script>
         <script src="other-textbox.js" defer></script>
         <script src="password-strength.js" defer></script>
+        
     </head>
 <body>
 
 <!-- Big takeaways: required keyword, make sure value is in there, feel free to use other attributes! -->
+<form id="loginForm">
+    <label for="pw-login">Enter Password: </label>
+    <input type="password" id="pw-login" required>
+    <button onclick="initialLogin(event)">Login</button>
+</form>
 
-<form action="project1submit.php" method="post" class="survey">
+<form action="project1submit.php" method="post" class="survey" id="hiddenSurvey" hidden>
 
 <fieldset>
 
@@ -40,14 +46,14 @@
     </div>
 </div>
 <span id="email-status"></span>
-
 <div class = "tooltip-container">
-    <label>Enter submission password: </label>
-    <input aria-describedby = "subPassword-tooltip" type="password" name="pw-name" id="pw-id" required>
-    <div role = "tooltip" id = "subPassword-tooltip">
+        <label>Enter submission password: </label>
+        <input aria-describedby = "subPassword-tooltip" type="password" name="pw-name" id="pw-id" required>
+        <div role = "tooltip" id = "subPassword-tooltip">
             <p>Please Enter a submission password.</p>
     </div>
 </div>
+
 
 <div class = "tooltip-container">
     <label for="user-pass">Create a password: </label>
@@ -55,7 +61,7 @@
     <div role = "tooltip" id = "Password-tooltip">
             <p>Please Enter a password.</p>
     </div>
-<div>
+
 <!--Status for password placeholder-->
 <div id="pw-status"></div>
 <div id = "strengthMeter">
@@ -159,7 +165,8 @@ for($i=13;$i<65;$i=$i + 5){
 <button id = "fontColorButton">Change Font Color</button>
 
 </form>
-
+</div>
 <div>If you are a returning user, and wish to edit your data <a href='user-edit.php'>click here</a></div><br>
 <div><a href='project1data.php'>View data page here</a></div>
+<script src="loginpage.js"></script>
 </body></html>

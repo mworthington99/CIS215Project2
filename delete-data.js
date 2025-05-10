@@ -41,9 +41,7 @@ function delete_data(){
      * @constant responseMessage - gets response message placeholder ID.
      * @constant email gets the value of the email. Avoids null values. 
      */
-    form.addEventListener("submit", function (event){
-        event.preventDefault(); 
-
+    form.addEventListener("submit", function (){
         const emailInput = document.getElementById("email-id");
         const responseMessage = document.getElementById("ResponseMessage");
 
@@ -54,10 +52,7 @@ function delete_data(){
          */
         fetch("delete-data.php", {
             method: "POST",
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: "email=" + encodeURIComponent(email)
+            body: "email=" + email
         })
         /**Server Responses */
         .then(response => response.text()) 

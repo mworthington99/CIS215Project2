@@ -32,10 +32,7 @@ function searchData() {
      * */
     fetch('search-data.php',{
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: 'search_value=' + encodeURIComponent(search_value)
+        body: 'search_value=' + search_value
 
     /**
      * This will ensure that the text in my html will be readable in plaintext when a response is sent by
