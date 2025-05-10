@@ -14,7 +14,7 @@
 document.getElementById("login-page").addEventListener('submit', initialLogin);
 async function initialLogin(event){
     event.preventDefault(); //prevents a default submission
-    const form = new FormData(); //create form
+    const form = new FormData(); //create formData
     const password = document.getElementById("pw-login"); //gather the users password input
     form.append('password', password.value); //appends single piece of data to this form 
     console.log(password.value); //shows the password value in console log. 
@@ -22,7 +22,7 @@ async function initialLogin(event){
         method: 'POST',
         body: form //prepares form data
     });
-    /**use let not const for async stuff */
+    /**use let not const -- This was what ended up setting me back so long */
     let result = await response.text(); //lets result equal response.text() 
     console.log("Server response:", result); //Shows log of what the response from the server is
     /**
@@ -31,10 +31,11 @@ async function initialLogin(event){
      */
     if(result == "correct"){ 
         console.log("Correct password.");
-        document.getElementById('hiddenSurvey').removeAttribute('hidden');
+        document.getElementById('hiddenSurvey').removeAttribute('hidden'); //removes the hidden attribute from project1submit form. 
         document.getElementById('loginForm').style.display = 'none';
     }
     else{
         console.log("Error, password incorrect");
+        alert("Incorrect Password");
     }
 }   
