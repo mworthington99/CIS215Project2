@@ -9,8 +9,8 @@
         <script src="background_color.js" defer></script>
         <script>console.log("In line script works")</script>
         <script src="delete-data.js" defer></script>
-        <script src="searchbar.js" defer></script>
-        <script src="dropdown.js" defer></script>
+        <script src="searchbar_2.js" defer></script>
+        <script src="dropdown_02.js" defer></script>
     </head>
 <?php print("<h1>Survey Data</h1>"); ?>
 <body>
@@ -232,7 +232,7 @@ print("<h2>Search the data</h2>");
 echo '
     <!--@author Clayton Allen Initializing search bar-->
     <input type="text" id="searchInput" placeholder="Enter a keyword...">
-    <button onclick="searchData()">Search</button>
+    <button id="searchDataButton">Search</button>
     <div id="searchResults"></div>
 ';
 print('<h2>Delete the data</h2>');
