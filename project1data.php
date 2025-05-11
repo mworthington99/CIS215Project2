@@ -14,7 +14,7 @@
     </head>
 <?php print("<h1>Survey Data</h1>"); ?>
 <body>
-    <h2>Filter <Data></Data></h2>
+    <h2>Filter </h2>
     <label for="dataDisplay">Filter by Category</label>
     <select id="dataDisplay">
         <option value="All">All</option>

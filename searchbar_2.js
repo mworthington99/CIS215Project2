@@ -22,7 +22,7 @@ async function search_data(event){
     //recieves 
     const result = await response.text();
     /**
-     * will populate table into @file project1data
+     * will populate table into @file project1data.php
      */
     searchResult.innerHTML = result;
     
